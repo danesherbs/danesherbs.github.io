@@ -1,163 +1,145 @@
 /*
-	Urban by TEMPLATED
-	templated.co @templatedco
-	Released for free under the Creative Commons Attribution 3.0 license (templated.co/license)
+	Solid State by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 */
 
 (function($) {
 
-	skel.breakpoints({
-		xlarge:	'(max-width: 1680px)',
-		large:	'(max-width: 1280px)',
-		medium:	'(max-width: 980px)',
-		small:	'(max-width: 736px)',
-		xsmall:	'(max-width: 480px)'
-	});
+	var	$window = $(window),
+		$body = $('body'),
+		$header = $('#header'),
+		$banner = $('#banner');
 
-	$(function() {
+	// Breakpoints.
+		breakpoints({
+			xlarge:	'(max-width: 1680px)',
+			large:	'(max-width: 1280px)',
+			medium:	'(max-width: 980px)',
+			small:	'(max-width: 736px)',
+			xsmall:	'(max-width: 480px)'
+		});
 
-		var	$window = $(window),
-			$body = $('body'),
-			$header = $('#header'),
-			$banner = $('#banner');
+	// Play initial animations on page load.
+		$window.on('load', function() {
+			window.setTimeout(function() {
+				$body.removeClass('is-preload');
+			}, 100);
+		});
 
-		// Disable animations/transitions until the page has loaded.
-			$body.addClass('is-loading');
+	// Header.
+		if ($banner.length > 0
+		&&	$header.hasClass('alt')) {
 
-			$window.on('load', function() {
-				window.setTimeout(function() {
-					$body.removeClass('is-loading');
-				}, 100);
+			$window.on('resize', function() { $window.trigger('scroll'); });
+
+			$banner.scrollex({
+				bottom:		$header.outerHeight(),
+				terminate:	function() { $header.removeClass('alt'); },
+				enter:		function() { $header.addClass('alt'); },
+				leave:		function() { $header.removeClass('alt'); }
 			});
 
-		// Fix: Placeholder polyfill.
-			$('form').placeholder();
+		}
 
-		// Prioritize "important" elements on medium.
-			skel.on('+medium -medium', function() {
-				$.prioritize(
-					'.important\\28 medium\\29',
-					skel.breakpoint('medium').active
-				);
-			});
+	// Menu.
+		var $menu = $('#menu');
 
-		// Menu.
-			$('#menu')
-				.append('<a href="#menu" class="close"></a>')
-				.appendTo($body)
-				.panel({
-					delay: 500,
-					hideOnClick: true,
-					hideOnSwipe: true,
-					resetScroll: true,
-					resetForms: true,
-					side: 'right'
-				});
+		$menu._locked = false;
 
-		// Header.
-			if (skel.vars.IEVersion < 9)
-				$header.removeClass('alt');
+		$menu._lock = function() {
 
-			if ($banner.length > 0
-			&&	$header.hasClass('alt')) {
+			if ($menu._locked)
+				return false;
 
-				$window.on('resize', function() { $window.trigger('scroll'); });
+			$menu._locked = true;
 
-				$banner.scrollex({
-					bottom:		$header.outerHeight(),
-					terminate:	function() { $header.removeClass('alt'); },
-					enter:		function() { $header.addClass('alt'); },
-					leave:		function() { $header.removeClass('alt'); $header.addClass('reveal'); }
-				});
+			window.setTimeout(function() {
+				$menu._locked = false;
+			}, 350);
 
-			}
+			return true;
 
-		// Banner.
-			var $banner = $('#banner');
+		};
 
-			if ($banner.length > 0) {
+		$menu._show = function() {
 
-				// IE fix.
-					if (skel.vars.IEVersion < 12) {
+			if ($menu._lock())
+				$body.addClass('is-menu-visible');
 
-						$window.on('resize', function() {
+		};
 
-							var wh = $window.height() * 0.60,
-								bh = $banner.height();
+		$menu._hide = function() {
 
-							$banner.css('height', 'auto');
+			if ($menu._lock())
+				$body.removeClass('is-menu-visible');
 
-							window.setTimeout(function() {
+		};
 
-								if (bh < wh)
-									$banner.css('height', wh + 'px');
+		$menu._toggle = function() {
 
-							}, 0);
+			if ($menu._lock())
+				$body.toggleClass('is-menu-visible');
 
-						});
+		};
 
-						$window.on('load', function() {
-							$window.triggerHandler('resize');
-						});
+		$menu
+			.appendTo($body)
+			.on('click', function(event) {
 
-					}
+				event.stopPropagation();
 
-				// Video check.
-					var video = $banner.data('video');
+				// Hide.
+					$menu._hide();
 
-					if (video)
-						$window.on('load.banner', function() {
+			})
+			.find('.inner')
+				.on('click', '.close', function(event) {
 
-							// Disable banner load event (so it doesn't fire again).
-								$window.off('load.banner');
+					event.preventDefault();
+					event.stopPropagation();
+					event.stopImmediatePropagation();
 
-							// Append video if supported.
-								if (!skel.vars.mobile
-								&&	!skel.breakpoint('large').active
-								&&	skel.vars.IEVersion > 9)
-									$banner.append('<video autoplay loop><source src="' + video + '.mp4" type="video/mp4" /><source src="' + video + '.webm" type="video/webm" /></video>');
+					// Hide.
+						$menu._hide();
 
-						});
+				})
+				.on('click', function(event) {
+					event.stopPropagation();
+				})
+				.on('click', 'a', function(event) {
 
-				// More button.
-					$banner.find('.more')
-						.addClass('scrolly');
+					var href = $(this).attr('href');
 
-			}
+					event.preventDefault();
+					event.stopPropagation();
 
-		// Tabs.
-			$('.flex-tabs').each( function() {
+					// Hide.
+						$menu._hide();
 
-				var t = jQuery(this),
-					tab = t.find('.tab-list li a'),
-					tabs = t.find('.tab');
-
-				tab.click(function(e) {
-
-					var x = jQuery(this),
-						y = x.data('tab');
-
-					// Set Classes on Tabs
-						tab.removeClass('active');
-						x.addClass('active');
-
-					// Show/Hide Tab Content
-						tabs.removeClass('active');
-						t.find('.' + y).addClass('active');
-
-					e.preventDefault();
+					// Redirect.
+						window.setTimeout(function() {
+							window.location.href = href;
+						}, 350);
 
 				});
 
-			});
+		$body
+			.on('click', 'a[href="#menu"]', function(event) {
 
-		// Scrolly.
-			$('.scrolly').scrolly({
-				offset: function() {
-					return $header.height() - 2;
-				}
-			});
+				event.stopPropagation();
+				event.preventDefault();
 
-	});
+				// Toggle.
+					$menu._toggle();
+
+			})
+			.on('keydown', function(event) {
+
+				// Hide on escape.
+					if (event.keyCode == 27)
+						$menu._hide();
+
+			});
 
 })(jQuery);

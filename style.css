@@ -1,0 +1,27 @@
+.grid-container {
+  display: grid;
+  grid-gap: 50px;
+}
+
+.title {
+  grid-column-start: 1;
+  grid-column-end: 4;
+  font-size: 30px;
+}
+
+.post {
+  grid-column-start: 1;
+  grid-column-end: 3;
+}
+
+.post-title {
+  font-size: 22px;
+}
+
+.post-date {
+  font-size: 14px;
+}
+
+.post-text {
+  font-size: 18px;
+}

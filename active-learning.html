@@ -25,10 +25,30 @@
         </br>
         </br>
         In active learning, the algorithm has control over which data point is labelled next. It requires far fewer data points to be labelled because we're not including the redundant ones.
+        </br>
+        </br>
+        <b>Uncertainty sampling.</b> Pick the most uncertain data point \(x^* = \min_{x} \max_y p(y | x) \).
+        </br>
+        </br>
+        <b>Query by commitee.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        </br>
+        </br>
+        <b>Information gain.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        </br>
+        </br>
+        <b>Rrror reduction strategy.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        </br>
+        </br>
+        <b>References</b>
+        </br>
+        [1] Active Learning, Experimental Design (2009), <a href="https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf">https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf</a>
+        </br>
+        [2] Sequence Selection for Active Learning (2006), <a href="http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf">http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf</a>
       </td>
     </tr>
   </table>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 </body>
 </html>

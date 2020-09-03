@@ -1,13 +1,9 @@
-font {
-  face: verdana;
-}
-
 header {
   font-size: x-large;
 }
 
 table {
-  width: 50%;
+  width: 500px;
 }
 
 td {

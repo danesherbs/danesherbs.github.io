@@ -2,67 +2,36 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dane Sherburn - Work</title>
   <link href="style.css" rel="stylesheet" />
 </head>
 <body>
 
-  <div class="grid-container">
-    <header class="title">Projects</header>
-
-    <div class="post">
-      
-      <div class="post-title" href="active-learning.html">
-        Common mistakes when evaluating graph neural networks
-      </div>
-      
-      <div class="post-date">
-        2 September 2020
-      </div>
-      
-      <p class="post-text">
+  <table>
+    <tr>
+      <td>
+        <header>
+          Evaluating graph neural networks
+        </header>
+        </br>
+        February 2020
+        </br>
+        </br>
         It turns out that many popular datasets used to evaluate Graph Neural Networks (GNNs) are too small. Papers often report results on a single data split (usually the split in <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>) and claim their model is superior with statistical significance. But their conclusions could have been entirely different on another data split!
-      </p>
-
-      <p class="post-text">
+        </br>
+        </br>
         Myself and others in the ML/NLP team at Babylon Health actually found this to be the case while trying to pin down why a model we developed was performing so well. It turns out it was because we were using a library that evaluated models on data splits different to the conventional splits of <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>. The bad news is that this mistake is extremely common. Even well-known peer-reviewed papers have made the same mistake [1].
-
-      </p>
-
-      <p>
+        </br>
+        </br>
         At about the same time, <a href="https://arxiv.org/abs/1811.05868">Pitfalls of Graph Neural Network Evaluation</a> wrote about exactly this. We also found that DGI uses a different split to <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>, and that papers have mistakenly compared models trained on these different splits.
-      </p>
+        </br>
+        </br>
+        The popular datasets that have caused the most trouble are the citation networks Cora, Citeseer and Pubmed. Compared to modern datasets, they're relatively small: 
+      </td>
+    </tr>
 
-      <p class="post-text">
-        The popular datasets that have caused the most trouble are the citation networks Cora, Citeseer and Pubmed. Compared to modern datasets, they're relatively small:        
-      </p>
-
-      <table class="tg">
-      <thead>
-        <tr>
-          <th class="tg-0lax"></th>
-          <th class="tg-0lax">Cora</th>
-          <th class="tg-0lax">Citeseer</th>
-          <th class="tg-0lax">Pubmed</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="tg-0lax"># Nodes</td>
-          <td class="tg-0lax">2,703</td>
-          <td class="tg-0lax">3,327</td>
-          <td class="tg-0lax">19,717</td>
-        </tr>
-      </tbody>
-      </table>
-
-      <p>
-        [1] Deep Graph Infomax (2019) https://arxiv.org/abs/1809.10341
-      </p>
-
-    </div>
-
-  </div>
+  </table>
 
   <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>

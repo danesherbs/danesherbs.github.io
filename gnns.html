@@ -58,15 +58,23 @@
         If we used data split A, we'd say GCN is better than GAT. Whereas if we happened to use data split B, we'd conclude the opposite. In both cases we have incredibly low p-values. 
         </br>
         </br>
-        This isn't true for just Cora, but many popular datasets e.g. Citeseer and Pubmed. It seems like this is a mistake that's wide-spread, even making it's way into peer-reviewed conferences. A simple way to correct this mistake may be to use k-fold cross-validation.
+        This isn't true for just Cora, but many popular datasets e.g. Citeseer and Pubmed. It seems like this is a mistake that's wide-spread, even making it's way into peer-reviewed conferences [1][2]. A simple way to correct this mistake may be to use k-fold cross-validation.
         </br>
         </br>
-        Code: <a href="https://github.com/danesherbs/citation-networks">https://github.com/danesherbs/citation-networks</a>. You can reproduce all experiments in this post by running <font face="Courier New">reproduce.sh</font>.
+        <b>Code</b>
+        </br>
+        <a href="https://github.com/danesherbs/citation-networks">https://github.com/danesherbs/citation-networks</a>. You can reproduce all experiments in this post by running <font face="Courier New">reproduce.sh</font>.
+        </br>
+        </br>
+        <b>References</b>
+        </br>
+        [1] Semi-Supervised Classification with Graph Convolutional Networks, ICLR 2017, https://arxiv.org/abs/1609.02907
+        </br>
+        [2] Deep Graph Infomax, ICLR 2019, https://arxiv.org/abs/1809.10341
       </td>
     </tr>
 
   </table>
 
-  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
 </body>
 </html>

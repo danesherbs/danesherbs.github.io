@@ -1,27 +1,15 @@
-.grid-container {
-  display: grid;
-  grid-gap: 50px;
+font {
+  face: verdana;
 }
 
-.title {
-  grid-column-start: 1;
-  grid-column-end: 4;
-  font-size: 30px;
+header {
+  font-size: x-large;
 }
 
-.post {
-  grid-column-start: 1;
-  grid-column-end: 3;
+table {
+  width: 50%;
 }
 
-.post-title {
-  font-size: 22px;
-}
-
-.post-date {
-  font-size: 14px;
-}
-
-.post-text {
-  font-size: 18px;
+td {
+  padding: 10px;
 }

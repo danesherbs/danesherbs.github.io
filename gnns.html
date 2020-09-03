@@ -18,16 +18,52 @@
         February 2020
         </br>
         </br>
-        It turns out that many popular datasets used to evaluate Graph Neural Networks (GNNs) are too small. Papers often report results on a single data split (usually the split in <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>) and claim their model is superior with statistical significance. But their conclusions could have been entirely different on another data split!
+        It turns out that many popular datasets used to evaluate graph neural networks are too small. Papers often report results on a single data split (usually <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>) and claim their model is superior with statistical significance. But their conclusions could have been entirely different on another data split!
         </br>
         </br>
-        Myself and others in the ML/NLP team at Babylon Health actually found this to be the case while trying to pin down why a model we developed was performing so well. It turns out it was because we were using a library that evaluated models on data splits different to the conventional splits of <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>. The bad news is that this mistake is extremely common. Even well-known peer-reviewed papers have made the same mistake [1].
+        Take a popular dataset, Cora, for example. We reach entirely different conclusions on different splits, with incredibly low p-values! 
         </br>
         </br>
-        At about the same time, <a href="https://arxiv.org/abs/1811.05868">Pitfalls of Graph Neural Network Evaluation</a> wrote about exactly this. We also found that DGI uses a different split to <a href="https://arxiv.org/abs/1603.08861">Yang et al., 2016</a>, and that papers have mistakenly compared models trained on these different splits.
+        
+        <table>
+          <tr>
+            <th>Data split</th>
+            <th>A</th>
+            <th>B</th>
+            <th>C</th>
+            <th>D</th>
+          </tr>
+          <tr>
+            <td>GCN</td>
+            <td><b>82.22% ± 0.31%</b></td>
+            <td>78.79% ± 2.63%</td>
+            <td><b>80.50% ± 0.86%</b></td>
+            <td>77.55% ± 3.53%</td>
+          </tr>
+          <tr>
+            <td>GAT</td>
+            <td>79.79% ± 1.43%</td>
+            <td><b>84.06% ± 0.74%</b></td>
+            <td>78.42% ± 2.45%</td>
+            <td><b>83.81% ± 0.69%</b></td>
+          </tr>
+          <tr>
+            <td>p-value</td>
+            <td>1.333e-07</td>
+            <td>7.152e-09</td>
+            <td>1.171e-03</td>
+            <td>7.153e-08</td>
+          </tr>
+        </table>
+
+        </br>
+
+        This isn't true for just Cora, but many popular datasets, namely Citeseer and Pubmed. A simple way to correct this mistake is to use k-fold cross-validation.
+
         </br>
         </br>
-        The popular datasets that have caused the most trouble are the citation networks Cora, Citeseer and Pubmed. Compared to modern datasets, they're relatively small: 
+
+        Code: <a href="https://github.com/danesherbs/citation-networks">https://github.com/danesherbs/citation-networks</a>. You can reproduce all experiments in this post by running <font face="Courier New">reproduce.sh</font>.
       </td>
     </tr>
 

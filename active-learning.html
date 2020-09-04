@@ -24,19 +24,29 @@
         That's the idea behind active learning.
         </br>
         </br>
-        In active learning, the algorithm has control over which data point is labelled next. It requires far fewer data points to be labelled because we're not including the redundant ones.
+        In active learning, the algorithm has control over which data point is labelled next. It requires far fewer data points to be labelled because it doesn't include the redundant ones.
         </br>
         </br>
-        <b>Uncertainty sampling.</b> Pick the most uncertain data point \(x^* = \min_{x} \max_y p(y | x) \).
+        The active learning loop can be summarised as follows:
+        <ol>
+          <li>Active learner picks data point \(x\) to be labelled.</li>
+          <li>Annotator labels data point \(x\) with label \(y\).</li>
+          <li>The model parameters \(\theta\) are updated.</li>
+          <li>Go back to Step 1.</li>
+        </ol>
+        Step 1 is unique to active learning. How do decide which data point to pick next?
         </br>
         </br>
-        <b>Query by commitee.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        <b>Least confidence strategy.</b> The least confidence strategy picks the next data point to be the one the model is most unsure of i.e. \(x^* = \mathrm{arg}\min_x p(\hat{y} | x, \theta) \) where \(\hat{y}\) is the class with highest probability.
         </br>
         </br>
-        <b>Information gain.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        <b>Entropy sampling.</b> The least confidence strategy doesn't use the full probability distribution \(p(y | x, \theta) \), though. Ideally we wouldn't throw so much information about our prediction away. Entropy is a measure of uncertainty that uses the full distribution. In entropy sampling, the next point is the one that maximises entropy i.e. \(x^* = \mathrm{arg}\max_x - \sum_i p(y_i | x, \theta) \log p(y_i | x, \theta) \).
         </br>
         </br>
-        <b>Rrror reduction strategy.</b> Pick the most uncertain class \(x^* = \min_{x} p(\hat{y} | x)\) where \(\hat{y}\) is the predicted class.
+        <b>Query by commitee.</b> ...
+        </br>
+        </br>
+        <b>Information gain.</b> ...
         </br>
         </br>
         <b>References</b>
@@ -44,6 +54,8 @@
         [1] Active Learning, Experimental Design (2009), <a href="https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf">https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf</a>
         </br>
         [2] Sequence Selection for Active Learning (2006), <a href="http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf">http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf</a>
+        </br>
+        [3] Active Learning Literature Survey (2010), <a href="http://burrsettles.com/pub/settles.activelearning.pdf">http://burrsettles.com/pub/settles.activelearning.pdf</a>
       </td>
     </tr>
   </table>

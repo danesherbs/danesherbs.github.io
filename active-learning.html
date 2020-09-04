@@ -40,7 +40,7 @@
         <b>Least confidence strategy.</b> The least confidence strategy picks the next data point to be the one the model is most unsure of i.e. \(x^* = \mathrm{arg}\min_x p(\hat{y} | x, \theta) \) where \(\hat{y}\) is the class with highest probability.
         </br>
         </br>
-        <b>Entropy sampling.</b> The least confidence strategy doesn't use the full probability distribution \(p(y | x, \theta) \), though. Ideally we wouldn't throw so much information about our prediction away. Entropy is a measure of uncertainty that uses the full distribution. In entropy sampling, the next point is the one that maximises entropy i.e. \(x^* = \mathrm{arg}\max_x - \sum_i p(y_i | x, \theta) \log p(y_i | x, \theta) \).
+        <b>Entropy sampling.</b> The least confidence strategy doesn't use the full probability distribution \(p(y | x, \theta) \), though. Ideally we wouldn't throw so much information about our prediction away. Entropy is a measure of uncertainty that uses the full distribution -- it's maximised when all class labels are equally probable, and minimised when one class label is certain. In entropy sampling, the next point is the one that maximises entropy i.e. \(x^* = \mathrm{arg}\max_x - \sum_i p(y_i | x, \theta) \log p(y_i | x, \theta) \).
         </br>
         </br>
         <b>Query by commitee.</b> ...

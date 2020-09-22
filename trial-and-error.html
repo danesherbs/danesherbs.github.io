@@ -21,51 +21,85 @@
         </br>
         </br>
         How likely is it that a solution to a problem is optimal? Unless it's a well-behaved mathematical problem, it's
-        stupefyingly improbable [1]. We're therefore in the business of continually trying out new ideas and error
-        correcting when solving a problem. Surprisingly, a lot of good advice boils down to one thing: tightening the
-        trial and error loop.
+        stupefyingly improbable [1]. How likely is it that it's the most useful problem that could be solving right now?
+        Unless it's been given it a lot of thought, it's also quite improbable.
+
+        </br>
+        </br>
+
+        We're therefore continually trying out new ideas and error correcting -- on our solution, and on the problem
+        itself. Surprisingly, a lot of good advice amounts to one thing: speeding up the trial and error loop.
 
         <img src="trial-and-error.jpeg" style="width: 12em;" class="center" alt="trial-and-error">
 
         When writing software, it's best to build the simplest end-to-end system as fast as possible. This
         leads you to ask the right questions earlier, like "do we really want to solve X, or do we actually want to
         solve Y?", "do we have the right expertise to solve problem Y?" and "how do we even measure our progress on
-        problem Y?". The tighter the trial and error loop, the better.
+        problem Y?". The faster the loop, the better.
 
         <blockquote>
           “The question is, how fast can you discover that the thing you’re working on is the wrong thing to be working
           on.”
           <br>
-          -- Astro Teller, Captain of Moonshots at Google X
+          ― Astro Teller, Captain of Moonshots at X
         </blockquote>
 
-        You may even know this to be true from experience if you've written software. How much easier is it to write
-        software with a REPL than without?
+        Maybe you've found it to be true in conversation. When you're explaning a topic, it's better to give a minute
+        summary and go into more detail if they're interested than to dive into detail at the outset.
 
         </br>
         </br>
 
-        There's a number of suprising places this principle arises. Paul Graham advises start ups to release early
+        Or maybe you've found it to be true if you've written software. How much easier is it to write
+        software with a REPL than without? What about when your program takes minutes to compile? It can often be
+        really frustrating when you're in a slow loop.
+
+        <!-- </br>
+        </br> -->
+
+        <!-- Feedback loops only work if you have the correct signal, though. You can't improve your solution if you can't
+        find out what's wrong with it. Paul Graham often advises start ups to talk to users -- this is the signal that
+        start ups should be paying attention to and error correcting on. -->
+
+        <!-- Elon Musk put engineers right by the Tesla assembly line. If any of their solutions failed, the error signal
+        wasn't diluted by being passed through a chain of command -- they could go inspect the error themselves. -->
+
+        <!-- There's a number of suprising places this principle arises. Paul Graham advises start ups to release early
         to quickly discover any major flaws, like a poor business idea or problems among founders. Neural networks first
         start with random parameters, but the error in their predictions is measured and parameters are iteratively
         updated via backpropagation. Likewise, solutions to intractable PDEs are approximated with iterative schemes
-        like Gauss-Seidel and Lax Wendroff.
+        like Gauss-Seidel and Lax Wendroff. -->
 
         </br>
         </br>
 
-        It's also common in numerical analysis. The idea is to try a solution, measure the error, and try a better
+        Part of reaching a good solution is not getting discouraged after failing over and over. Be determined e.g. PG's
+        "determination is more important than intelligence", Carol Dweck's growth mindset
+        "everyone's first iterations look bad"
+
+        <!-- </br>
+        </br> -->
+
+        <!-- It's also common in numerical analysis. The idea is to try a solution, measure the error, and try a better
         solution in the next iteration. Iterative schemes for solving PDEs, like Guass-Seidel and Lax Wendroff, follow
         this pattern. As does training neural networks: initially the parameters are random, but the error is measured
-        and parameters are updated using back-propagation.
+        and parameters are updated using back-propagation. -->
 
         <!-- Numerical analysis - absence of an analytic solution - try a solution, measure error, try a better solution next
         time. Iterative schemes for solving PDEs e.g. Gauss-Seidel, Lax Wendroff. Training neural networks - guess
         parameters, error correct using back-propagation. Expectation Maximisation algorithm e.g. Gaussian mixture
         models. -->
 
+        <!-- </br>
+        </br>
+
+        What about when applying for positions? We may delay applying out of fear of rejection, but in reality we'd be
+        far better off applying. If we do fail, we'll have a much more accurate picture in how to succeed next time. It
+        could inform future projects or interview preparation techniques.
+
         </br>
         </br>
+
 
         Paul Graham's advice to release early is the same sentiment. "Release early" is common start up advice from Paul
         Graham and Reid Hoffman. Paul Graham PG's "talk to
@@ -121,6 +155,9 @@
             solution next time. Iterative schemes for solving PDEs e.g. Gauss-Seidel, Lax Wendroff. Training neural
             networks - guess parameters, error correct using back-propagation. Expectation Maximisation algorithm e.g.
             Gaussian mixture models.</li>
+          <li>Explaning a topic. Better to give a minute summary and go into more detail if necessary than dive into
+            detail at the outset. The tighter the feedback loop the better.</li>
+          <li>GPUs speeding up experiemnts in ML</li>
         </ul>
 
         </br>
@@ -128,12 +165,15 @@
 
         A lot of good advice boils down to having a tighter trial and error loop (e.g. Google X "fail fast",
         PG's "release early"), or to keep executing it (e.g. Carol Dweck's Growth Mindset, PG's "determination matters
-        more than intelligence").
+        more than intelligence"). -->
 
-        </br>
-        </br>
+        <blockquote>
+          “Dude, suckin’ at something is the first step to being sorta good at something.”
+          </br>
+          ― Jake the Dog
+        </blockquote>
 
-        Have a tight trial and error loop, and don't give up.
+        Have a fast trial and error loop, and don't give up.
 
         </br>
         </br>

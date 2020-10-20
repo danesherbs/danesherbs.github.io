@@ -2,12 +2,16 @@ header {
   font-size: x-large;
 }
 
+body {
+  margin: 25px;
+}
+
 table {
   width: 35em;
 }
 
 td {
-  padding: 10px;
+  padding: 0px;
 }
 
 blockquote {
@@ -22,4 +26,16 @@ blockquote {
   margin-left: auto;
   margin-right: auto;
   width: 50%;
-} 
+}
+
+a:link, a:visited {
+  color: #0645AD;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #1b66e3;
+  background-color: transparent;
+  text-decoration: none;
+}

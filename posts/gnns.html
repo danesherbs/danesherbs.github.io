@@ -9,7 +9,7 @@
 </head>
 
 <body>
-  <a href="../projects.html">Projects</a> / <a href="../blog.html">Blog</a> / <a href="../links.html">Links</a>
+  <a href="../index.html">Projects</a> / <a href="../blog.html">Blog</a> / <a href="../links.html">Links</a>
   </br>
   </br>
 
@@ -30,36 +30,38 @@
   network (GCN) and graph attention network (GAT).
   </br>
   </br>
-  <table>
-    <tr>
-      <th>Data split</th>
-      <th>A</th>
-      <th>B</th>
-      <th>C</th>
-      <th>D</th>
-    </tr>
-    <tr>
-      <td>GCN</td>
-      <td><b>82.22% ± 0.31%</b></td>
-      <td>78.79% ± 2.63%</td>
-      <td><b>80.50% ± 0.86%</b></td>
-      <td>77.55% ± 3.53%</td>
-    </tr>
-    <tr>
-      <td>GAT</td>
-      <td>79.79% ± 1.43%</td>
-      <td><b>84.06% ± 0.74%</b></td>
-      <td>78.42% ± 2.45%</td>
-      <td><b>83.81% ± 0.69%</b></td>
-    </tr>
-    <tr>
-      <td>p-value</td>
-      <td>1.333e-07</td>
-      <td>7.152e-09</td>
-      <td>1.171e-03</td>
-      <td>7.153e-08</td>
-    </tr>
-  </table>
+  <div style="overflow-x: scroll;">
+    <table>
+      <tr>
+        <th>Data split</th>
+        <th>A</th>
+        <th>B</th>
+        <th>C</th>
+        <th>D</th>
+      </tr>
+      <tr>
+        <td>GCN</td>
+        <td><b>82.22% ± 0.31%</b></td>
+        <td>78.79% ± 2.63%</td>
+        <td><b>80.50% ± 0.86%</b></td>
+        <td>77.55% ± 3.53%</td>
+      </tr>
+      <tr>
+        <td>GAT</td>
+        <td>79.79% ± 1.43%</td>
+        <td><b>84.06% ± 0.74%</b></td>
+        <td>78.42% ± 2.45%</td>
+        <td><b>83.81% ± 0.69%</b></td>
+      </tr>
+      <tr>
+        <td>p-value</td>
+        <td>1.333e-07</td>
+        <td>7.152e-09</td>
+        <td>1.171e-03</td>
+        <td>7.153e-08</td>
+      </tr>
+    </table>
+  </div>
   </br>
   If we used data split A, we'd say GCN is better than GAT. Whereas if we happened to use data split B, we'd
   conclude the opposite. In both cases we have incredibly low p-values.

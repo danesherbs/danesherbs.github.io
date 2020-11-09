@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dane Sherburn - Work</title>
+  <link href="../style.css" rel="stylesheet" />
+</head>
+
+<body>
+
+  <table>
+    <tr>
+      <td>
+        <header>
+          A quick and dirty introduction to active learning
+        </header>
+        </br>
+        September 2020
+        </br>
+        </br>
+        When studying machine learning, we're often given a dataset like MNIST to practice on. Though in real-world
+        problems we're often not given a dataset -- we have to create one ourselves. But creating datasets is
+        time-consuming, especially when data needs to be manually labelled. Not all labels are equally useful, though.
+        Ideally we only obtain expensive labels if they're informative, and safetly forget about the rest.
+        </br>
+        </br>
+        That's the idea behind active learning.
+        </br>
+        </br>
+        In active learning, the algorithm has control over which data point is labelled next. It requires fewer data
+        points to be labelled because it doesn't include the redundant ones.
+        </br>
+        </br>
+        <!-- The active learning loop is summarised as follows:
+        <ol>
+          <li>Active learner picks data point \(x\) to be labelled.</li>
+          <li>Annotator labels data point \(x\) with label \(y\).</li>
+          <li>Model parameters \(\theta\) are updated with training example \((x, y)\).</li>
+          <li>Go back to Step 1.</li>
+        </ol>
+        Step 1 is unique to active learning. How do decide which data point to pick next? -->
+        But how do we find the most informative data point to label next?
+        </br>
+        </br>
+        <b>Least confidence strategy.</b> The least confidence strategy picks the next data point to be the one the
+        model is most unsure of i.e. \(x^* = \mathrm{arg}\min_x p(\hat{y} | x, \theta) \) where \(\hat{y}\) is the class
+        with highest probability.
+        </br>
+        </br>
+        <b>Entropy sampling.</b> The least confidence strategy doesn't use the full probability distribution \(p(y | x,
+        \theta) \), though. Ideally we wouldn't throw so much information about our prediction away. Entropy is a
+        measure of uncertainty that uses the full distribution -- it's maximised when all class labels are equally
+        probable, and minimised when one class label is certain. In entropy sampling, the next point is the one that
+        maximises entropy i.e. \(x^* = \mathrm{arg}\max_x - \sum_i p(y_i | x, \theta) \log p(y_i | x, \theta) \).
+        </br>
+        </br>
+        <!-- <b>Query by commitee.</b> ...
+        </br>
+        </br>
+        <b>Information gain.</b> ...
+        </br>
+        </br> -->
+        <b>References</b>
+        </br>
+        [1] Active Learning, Experimental Design (2009), <a
+          href="https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf">https://people.eecs.berkeley.edu/~jordan/courses/294-fall09/lectures/active/slides.pdf</a>
+        </br>
+        [2] Sequence Selection for Active Learning (2006), <a
+          href="http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf">http://www.siddiqi.com/sajid/papers/anderson_siddiqi_moore.seq-sel.pdf</a>
+        </br>
+        [3] Active Learning Literature Survey (2010), <a
+          href="http://burrsettles.com/pub/settles.activelearning.pdf">http://burrsettles.com/pub/settles.activelearning.pdf</a>
+      </td>
+    </tr>
+  </table>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+</body>
+
+</html>

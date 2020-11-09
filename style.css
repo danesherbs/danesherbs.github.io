@@ -3,7 +3,10 @@ header {
 }
 
 body {
-  margin: 25px;
+  margin: 0 auto;
+  max-width: 33em;
+  line-height: 1.5;
+  padding: 4em 1em;
 }
 
 table {
@@ -19,13 +22,6 @@ blockquote {
   text-align: center;
   margin: 20px;
   padding: 20px;
-}
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  width: 50%;
 }
 
 a:link, a:visited {
